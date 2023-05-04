@@ -25,3 +25,10 @@ D:\Livre\Net6-StudyCase\ApiAuth\obj\Debug\net6.0\refint\ApiAuth.dll
 D:\Livre\Net6-StudyCase\ApiAuth\obj\Debug\net6.0\ApiAuth.pdb
 D:\Livre\Net6-StudyCase\ApiAuth\obj\Debug\net6.0\ApiAuth.genruntimeconfig.cache
 D:\Livre\Net6-StudyCase\ApiAuth\obj\Debug\net6.0\ref\ApiAuth.dll
+D:\Livre\Net6-StudyCase\ApiAuth\bin\Debug\net6.0\Library.dll
+D:\Livre\Net6-StudyCase\ApiAuth\bin\Debug\net6.0\Library.pdb
+D:\Livre\Net6-StudyCase\ApiAuth\obj\Debug\net6.0\staticwebassets\msbuild.ApiAuth.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Livre\Net6-StudyCase\ApiAuth\obj\Debug\net6.0\staticwebassets\msbuild.build.ApiAuth.props
+D:\Livre\Net6-StudyCase\ApiAuth\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ApiAuth.props
+D:\Livre\Net6-StudyCase\ApiAuth\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ApiAuth.props
+D:\Livre\Net6-StudyCase\ApiAuth\obj\Debug\net6.0\staticwebassets.pack.json

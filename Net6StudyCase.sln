@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiStore", "ApiStore\ApiSto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiAuth", "ApiAuth\ApiAuth.csproj", "{C42F79BC-2780-47AC-9F4D-05C7A4FB7EBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{5B6EF330-D4B6-4EA4-A62E-F9952B139D91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{C42F79BC-2780-47AC-9F4D-05C7A4FB7EBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C42F79BC-2780-47AC-9F4D-05C7A4FB7EBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C42F79BC-2780-47AC-9F4D-05C7A4FB7EBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B6EF330-D4B6-4EA4-A62E-F9952B139D91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B6EF330-D4B6-4EA4-A62E-F9952B139D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B6EF330-D4B6-4EA4-A62E-F9952B139D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B6EF330-D4B6-4EA4-A62E-F9952B139D91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
