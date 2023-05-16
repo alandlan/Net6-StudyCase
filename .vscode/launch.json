@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/ApiAuth/bin/Debug/net6.0/ApiAuth.dll",
+            "program": "${workspaceFolder}/ApiStore/bin/Debug/net6.0/ApiStore.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/ApiAuth",
+            "cwd": "${workspaceFolder}/ApiStore",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",
