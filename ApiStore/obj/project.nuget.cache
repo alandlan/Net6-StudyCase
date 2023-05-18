@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "V4469/m+bXmfVP/0zGW51O+5Gi0vIpJCwXnvLsjI8daZUHENBYHVPKTCDYzhdas5q5XwHjDeB2ZAMJ50Y5OBRQ==",
+  "dgSpecHash": "DwqmvN26oOId09M1/wPTjgme1VrYtoy8B0sdQbxjH36Wm81C4XG+PqtQsKqb1SUyMHyorNkZujFeHIz8ewzITw==",
   "success": true,
-  "projectFilePath": "D:\\Livre\\Net6-StudyCase\\apistore\\ApiStore.csproj",
+  "projectFilePath": "D:\\Livre\\Net6-StudyCase\\ApiStore\\ApiStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alan4\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\alan4\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

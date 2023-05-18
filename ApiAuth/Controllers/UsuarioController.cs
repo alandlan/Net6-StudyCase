@@ -1,3 +1,4 @@
+using ApiAuth.Service;
 using AutoMapper;
 using Library.Dtos;
 using Library.Models;
@@ -10,24 +11,18 @@ namespace ApiAuth.Controllers;
 [Route("[Controller]")]
 public class UsuarioController : ControllerBase
 {
-    private IMapper _mapper;
-    private UserManager<Usuario> _userManager;
-
-    public UsuarioController(IMapper mapper, UserManager<Usuario> userManager = null)
+    public UsuarioService _service {get;set;}
+    public UsuarioController(UsuarioService service)
     {
-        _mapper = mapper;
-        _userManager = userManager;
+        _service = service;
     }
+    
 
     [HttpPost]
     public async Task<IActionResult> CadastrarUsuario(CreateUsuarioDto usuarioDto)
     {
-        Usuario usuario = _mapper.Map<Usuario>(usuarioDto);
+        await _service.Cadastrar(usuarioDto);
 
-        IdentityResult result = await _userManager.CreateAsync(usuario,usuarioDto.Password);
-
-        if(result.Succeeded) return Ok("Usuário cadastrado");
-
-        throw new ApplicationException("Falha ao cadastrar usuário!");
+        return Ok("Usuário cadastrado");
     }
 }
