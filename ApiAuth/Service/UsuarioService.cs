@@ -9,11 +9,13 @@ namespace ApiAuth.Service
     {
         private IMapper _mapper;
         private UserManager<Usuario> _userManager;
+        private SignInManager<Usuario> _signInManager;
 
-        public UsuarioService(IMapper mapper, UserManager<Usuario> userManager)
+        public UsuarioService(IMapper mapper, UserManager<Usuario> userManager,SignInManager<Usuario> signInManager)
         {
             _mapper = mapper;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         public async Task Cadastrar(CreateUsuarioDto dto)
@@ -26,6 +28,15 @@ namespace ApiAuth.Service
         
             }catch(Exception){
                 throw new ApplicationException("Falha ao cadastrar usuário!");
+            }
+        }
+
+        public async Task Login(LoginUsuarioDto dto)
+        {
+            var resultado = await _signInManager.PasswordSignInAsync(dto.Username, dto.Password,false,false);
+
+            if(!resultado.Succeeded){
+                throw new ApplicationException("Usuário não autenticado!");
             }
         }
     }
