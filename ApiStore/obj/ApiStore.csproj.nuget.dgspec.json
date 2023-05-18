@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Livre\\Net6-StudyCase\\apistore\\ApiStore.csproj": {}
+    "D:\\Livre\\Net6-StudyCase\\ApiStore\\ApiStore.csproj": {}
   },
   "projects": {
-    "D:\\Livre\\Net6-StudyCase\\apistore\\ApiStore.csproj": {
+    "D:\\Livre\\Net6-StudyCase\\ApiStore\\ApiStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Livre\\Net6-StudyCase\\apistore\\ApiStore.csproj",
+        "projectUniqueName": "D:\\Livre\\Net6-StudyCase\\ApiStore\\ApiStore.csproj",
         "projectName": "ApiStore",
-        "projectPath": "D:\\Livre\\Net6-StudyCase\\apistore\\ApiStore.csproj",
+        "projectPath": "D:\\Livre\\Net6-StudyCase\\ApiStore\\ApiStore.csproj",
         "packagesPath": "C:\\Users\\alan4\\.nuget\\packages\\",
-        "outputPath": "D:\\Livre\\Net6-StudyCase\\apistore\\obj\\",
+        "outputPath": "D:\\Livre\\Net6-StudyCase\\ApiStore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alan4\\AppData\\Roaming\\NuGet\\NuGet.Config",
