@@ -1,8 +1,5 @@
 using ApiAuth.Service;
-using AutoMapper;
 using Library.Dtos;
-using Library.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiAuth.Controllers;
