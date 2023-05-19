@@ -27,9 +27,13 @@ public class UsuarioController : ControllerBase
 
     public async Task<IActionResult> Login(LoginUsuarioDto dto)
     {
-        await _service.Login(dto);
+        var login = await _service.Login(dto);
 
-        return Ok("Usuário autenticado!");
+        if(login == null || !login.Succeeded)
+            return Unauthorized("Usuario ou senha inválida!");
 
+        var token = _service.GenerateToken(dto);
+        
+        return Ok(token);
     }
 }
