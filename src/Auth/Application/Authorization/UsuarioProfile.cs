@@ -10,5 +10,6 @@ public class UsuarioProfile : Profile
     public UsuarioProfile()
     {
         CreateMap<CreateUserViewModel, Usuario>();
+        CreateMap<Usuario, GetAllUsersViewModel>();
     }
 }
