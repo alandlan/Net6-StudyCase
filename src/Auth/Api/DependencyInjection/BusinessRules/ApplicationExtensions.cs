@@ -2,6 +2,8 @@
 using Net6StudyCase.Auth.Application.Authorization.UseCases;
 using Net6StudyCase.Auth.Domain.UseCases;
 using Net6StudyCase.Auth.Infra.Identity;
+using SharedKernel.Responses;
+using SharedKernel.ViewModel;
 
 namespace Net6StudyCase.Auth.Api.DependencyInjection.BusinessRules
 {
@@ -14,7 +16,7 @@ namespace Net6StudyCase.Auth.Api.DependencyInjection.BusinessRules
             services.AddScoped<ILogin,LogIn>();
             services.AddScoped<IGenerateToken,GenerateToken>();
             services.AddScoped<ITokenService,TokenService>();
-            services.AddScoped<IGetUsers,GetUsers>();
+            services.AddScoped<IGetUsers<BaseResponseWithValue<ICollection<GetAllUsersViewModel>>>,GetUsers>();
 
             return services;
         }

@@ -2,8 +2,8 @@ using SharedKernel.ViewModel;
 
 namespace Net6StudyCase.Auth.Domain.UseCases
 {
-    public interface IGetUsers
+    public interface IGetUsers<TResult>
     {
-        Task<ICollection<GetAllUsersViewModel>> RunAsync();
+        Task<TResult> RunAsync();
     }
 }

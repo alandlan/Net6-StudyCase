@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Net6StudyCase.Auth.Domain.UseCases;
 using Net6StudyCase.SharedKernel.ViewModel;
+using SharedKernel.Responses;
 using SharedKernel.ViewModel;
 
 namespace ApiAuth.Controllers;
@@ -11,10 +12,10 @@ namespace ApiAuth.Controllers;
 public class UsuarioController : ControllerBase
 {
     public ICreateUser _createUser {get;set;}
-    public IGetUsers _getUsers {get;set;}
+    public IGetUsers<BaseResponseWithValue<ICollection<GetAllUsersViewModel>>> _getUsers {get;set;}
     public ILogin _login { get;set;}
     public IGenerateToken _generateToken { get;set;}
-    public UsuarioController(ICreateUser createUser, ILogin login, IGenerateToken generateToken, IGetUsers getUsers)
+    public UsuarioController(ICreateUser createUser, ILogin login, IGenerateToken generateToken, IGetUsers<BaseResponseWithValue<ICollection<GetAllUsersViewModel>>> getUsers)
     {
         _createUser = createUser;
         _login = login;
@@ -41,9 +42,9 @@ public class UsuarioController : ControllerBase
         if(login == null || !login.Succeeded)
             return Unauthorized("Usuario ou senha inválida!");
 
-        var token = _generateToken.RunAsync(dto);
+        var response = _generateToken.RunAsync(dto);
         
-        return Ok(token);
+        return Ok(response);
     }
 
     
