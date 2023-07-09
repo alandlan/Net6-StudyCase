@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Net6StudyCase.Auth.Domain.UseCases;
 using Net6StudyCase.SharedKernel.ViewModel;
@@ -10,13 +11,15 @@ namespace ApiAuth.Controllers;
 public class UsuarioController : ControllerBase
 {
     public ICreateUser _createUser {get;set;}
+    public IGetUsers _getUsers {get;set;}
     public ILogin _login { get;set;}
     public IGenerateToken _generateToken { get;set;}
-    public UsuarioController(ICreateUser createUser, ILogin login, IGenerateToken generateToken)
+    public UsuarioController(ICreateUser createUser, ILogin login, IGenerateToken generateToken, IGetUsers getUsers)
     {
         _createUser = createUser;
         _login = login;
         _generateToken = generateToken;
+        _getUsers = getUsers;
     }
 
 
@@ -28,6 +31,7 @@ public class UsuarioController : ControllerBase
         return Ok("Usuário cadastrado");
     }
 
+    [AllowAnonymous]
     [HttpPost("login")]
 
     public async Task<IActionResult> Login(LoginUserViewModel dto)
@@ -40,5 +44,14 @@ public class UsuarioController : ControllerBase
         var token = _generateToken.RunAsync(dto);
         
         return Ok(token);
+    }
+
+    
+    [HttpGet("")]
+    public async Task<IActionResult> GetAllUsers()
+    {
+        var users = await _getUsers.RunAsync();
+
+        return Ok(users);
     }
 }

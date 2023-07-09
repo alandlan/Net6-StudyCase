@@ -1,4 +1,5 @@
-﻿using Net6StudyCase.Auth.Application.Authorization.UseCases;
+﻿using Application.Authorization.UseCases;
+using Net6StudyCase.Auth.Application.Authorization.UseCases;
 using Net6StudyCase.Auth.Domain.UseCases;
 using Net6StudyCase.Auth.Infra.Identity;
 
@@ -13,6 +14,7 @@ namespace Net6StudyCase.Auth.Api.DependencyInjection.BusinessRules
             services.AddScoped<ILogin,LogIn>();
             services.AddScoped<IGenerateToken,GenerateToken>();
             services.AddScoped<ITokenService,TokenService>();
+            services.AddScoped<IGetUsers,GetUsers>();
 
             return services;
         }
