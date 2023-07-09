@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Library.Dtos
+namespace SharedKernel.ViewModel
 {
-    public class CreateProdutoDto
+    public class CreateProdutoViewModel
     {
         public string Nome { get; set; }
         public string Descricao { get; set; }

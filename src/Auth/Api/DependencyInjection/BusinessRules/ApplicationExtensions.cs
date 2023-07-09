@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Net6StudyCase.Auth.Application.Authorization.UseCases;
+﻿using Net6StudyCase.Auth.Application.Authorization.UseCases;
 using Net6StudyCase.Auth.Domain.UseCases;
 using Net6StudyCase.Auth.Infra.Identity;
 

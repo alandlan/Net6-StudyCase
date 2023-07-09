@@ -1,8 +1,6 @@
-using ApiStore.Data;
-using AutoMapper;
-using Library.Dtos;
-using Library.Models;
 using Microsoft.AspNetCore.Mvc;
+using Net6StudyCase.Store.Domain.UseCases;
+using SharedKernel.ViewModel;
 
 namespace ApiStore.Controllers
 {
@@ -10,29 +8,23 @@ namespace ApiStore.Controllers
     [Route("[Controller]")]
     public class ProdutoController : Controller
     {
-        private IMapper _mapper;
-        private readonly ProdutoDbContext _produtoDbContext;
+        private readonly ICreateProduct createProduct;
 
-        public ProdutoController(IMapper mapper, ProdutoDbContext produtoDbContext)
+        public ProdutoController(ICreateProduct createProduct)
         {
-            _mapper = mapper;
-            _produtoDbContext = produtoDbContext;
+            this.createProduct = createProduct;
         }
 
         [HttpPost]
-        public async Task<ActionResult> CadastrarProduto(CreateProdutoDto produtoDto)
+        public async Task<ActionResult> CadastrarProduto(CreateProdutoViewModel produtoDto)
         {
             try
             {
-                Produto usuario = _mapper.Map<Produto>(produtoDto);
-
-                await _produtoDbContext.AddAsync(usuario);
-
-                await _produtoDbContext.SaveChangesAsync();
+                await createProduct.Create(produtoDto);
 
                 return Ok("Produto cadastrado");
             }
-            catch (System.Exception ex)
+            catch 
             {
                 return BadRequest("Falha ao cadastrar produto!");
             }

@@ -1,8 +1,9 @@
-using Library.Models;
+
+using Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace ApiStore.Data
-{
+namespace Net6StudyCase.Store.Infra.Database.Context;
+
     public class ProdutoDbContext : DbContext
     {
         public ProdutoDbContext(DbContextOptions<ProdutoDbContext> opts) : base (opts)
@@ -17,4 +18,3 @@ namespace ApiStore.Data
 
         public DbSet<Produto> Produtos { get; set; }
     }
-}

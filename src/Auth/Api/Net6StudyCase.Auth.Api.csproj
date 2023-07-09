@@ -21,10 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Library\Library.csproj" />
     <ProjectReference Include="..\..\SharedKernel\Net6StudyCase.SharedKernel.csproj" />
     <ProjectReference Include="..\Application\Net6StudyCase.Auth.Application.csproj" />
-    <ProjectReference Include="..\Domain\Net6StudyCase.Auth.Domain.csproj" />
     <ProjectReference Include="..\Infra\Net6StudyCase.Auth.Infra.csproj" />
   </ItemGroup>
 
