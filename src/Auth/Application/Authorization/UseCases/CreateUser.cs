@@ -9,12 +9,12 @@ namespace Net6StudyCase.Auth.Application.Authorization.UseCases
     public class CreateUser : ICreateUser
     {
         private IMapper _mapper;
-        private UserManager<Usuario> _userManager;
+        private IIdentityManager _identityManager;
 
-        public CreateUser(IMapper mapper, UserManager<Usuario> userManager)
+        public CreateUser(IMapper mapper,IIdentityManager identityManager)
         {
             _mapper = mapper;
-            _userManager = userManager;
+            _identityManager = identityManager;
         }
         public async Task Cadastrar(CreateUserViewModel dto)
         {
@@ -22,7 +22,7 @@ namespace Net6StudyCase.Auth.Application.Authorization.UseCases
             {
                 Usuario usuario = _mapper.Map<Usuario>(dto);
 
-                await _userManager.CreateAsync(usuario, dto.Password);
+                await _identityManager.Cadastrar(usuario,dto.Password,dto.UserType);
 
 
             }

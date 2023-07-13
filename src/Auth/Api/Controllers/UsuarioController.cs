@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Net6StudyCase.Auth.Domain;
 using Net6StudyCase.Auth.Domain.UseCases;
 using Net6StudyCase.SharedKernel.ViewModel;
 using SharedKernel.Responses;
 using SharedKernel.ViewModel;
 
 namespace ApiAuth.Controllers;
+
 
 [ApiController]
 [Route("[Controller]")]
@@ -24,6 +26,7 @@ public class UsuarioController : ControllerBase
     }
 
 
+    [AllowAnonymous]
     [HttpPost("cadastro")]
     public async Task<IActionResult> CadastrarUsuario(CreateUserViewModel usuarioDto)
     {
@@ -42,13 +45,17 @@ public class UsuarioController : ControllerBase
         if(login == null || !login.Succeeded)
             return Unauthorized("Usuario ou senha inválida!");
 
-        var response = _generateToken.RunAsync(dto);
-        
-        return Ok(response);
+        var response = await _generateToken.RunAsync(dto);
+
+        if(response.Success)
+            return Ok(response);
+
+        return BadRequest(response);
     }
 
     
     [HttpGet("")]
+    [Authorize("OnlyAdmin")]
     public async Task<IActionResult> GetAllUsers()
     {
         var users = await _getUsers.RunAsync();
