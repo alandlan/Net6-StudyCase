@@ -42,13 +42,14 @@ public class UsuarioController : ControllerBase
         if(login == null || !login.Succeeded)
             return Unauthorized("Usuario ou senha inválida!");
 
-        var response = _generateToken.RunAsync(dto);
+        var response = await _generateToken.RunAsync(dto);
         
         return Ok(response);
     }
 
     
     [HttpGet("")]
+    [Authorize("Teste")]
     public async Task<IActionResult> GetAllUsers()
     {
         var users = await _getUsers.RunAsync();
