@@ -4,6 +4,6 @@ namespace Net6StudyCase.Auth.Infra.Identity
 {
     public interface ITokenService
     {
-        string GenerateToken(Usuario usuario);
+        Task<string> GenerateToken(Usuario usuario);
     }
 }

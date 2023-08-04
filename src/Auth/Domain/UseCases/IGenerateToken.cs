@@ -5,6 +5,6 @@ namespace Net6StudyCase.Auth.Domain.UseCases
 {
     public interface IGenerateToken
     {
-        BaseResponse RunAsync(LoginUserViewModel dto);
+        Task<BaseResponse> RunAsync(LoginUserViewModel dto);
     }
 }

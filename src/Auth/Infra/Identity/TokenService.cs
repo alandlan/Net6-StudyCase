@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Net6StudyCase.Auth.Domain;
 using System.IdentityModel.Tokens.Jwt;
@@ -10,18 +11,20 @@ namespace Net6StudyCase.Auth.Infra.Identity
     public class TokenService : ITokenService
     {
         private readonly IConfiguration _config;
+        private readonly UserManager<Usuario> _userManager;
 
-        public TokenService(IConfiguration config)
+        public TokenService(IConfiguration config, UserManager<Usuario> userManager)
         {
             _config = config;
+            _userManager = userManager;
         }
-        public string GenerateToken(Usuario usuario)
+        public async Task<string> GenerateToken(Usuario usuario)
         {
-            Claim[] claims = new Claim[]{
-                new Claim("username", usuario.UserName),
-                new Claim("id",usuario.Id),
-                new Claim(ClaimTypes.DateOfBirth, usuario.DataNascimento.ToString())
-            };
+            var claims = await _userManager.GetClaimsAsync(usuario);
+
+            claims.Add(new Claim("username", usuario.UserName));
+            claims.Add(new Claim("id", usuario.Id));
+            claims.Add(new Claim(ClaimTypes.DateOfBirth, usuario.DataNascimento.ToString()));
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);

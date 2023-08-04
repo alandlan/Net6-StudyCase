@@ -14,5 +14,10 @@ namespace SharedKernel.ViewModel
         [Required]
         [Compare("Password")]
         public string? RePassword { get; set; }
+        [Required]
+        [EmailAddress]
+        public string? Email { get; set; }
+        [Required]
+        public bool IsAdmin { get; set; }
     }
 }

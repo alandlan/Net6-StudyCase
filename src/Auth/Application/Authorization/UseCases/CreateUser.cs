@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Security.Claims;
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Net6StudyCase.Auth.Domain;
 using Net6StudyCase.Auth.Domain.UseCases;
@@ -22,9 +23,10 @@ namespace Net6StudyCase.Auth.Application.Authorization.UseCases
             {
                 Usuario usuario = _mapper.Map<Usuario>(dto);
 
-                await _userManager.CreateAsync(usuario, dto.Password);
+                var result = await _userManager.CreateAsync(usuario, dto.Password);
 
-
+                if(result.Succeeded && dto.IsAdmin)
+                    await _userManager.AddClaimAsync(usuario, new Claim("UserType","Admin"));
             }
             catch (Exception)
             {

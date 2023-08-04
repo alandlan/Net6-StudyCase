@@ -20,14 +20,14 @@ namespace Net6StudyCase.Auth.Application.Authorization.UseCases
             _signInManager = signInManager;
             _response = new BaseResponseWithValue<string>();
         }
-        public BaseResponse RunAsync(LoginUserViewModel dto)
+        public async Task<BaseResponse> RunAsync(LoginUserViewModel dto)
         {
             var usuario = _signInManager.UserManager.Users.FirstOrDefault(user => user.UserName == dto.Username.ToUpper());
 
             if (usuario == null)
                 throw new Exception("Usuário não localizado!");
 
-            var token = _tokenService.GenerateToken(usuario);
+            var token = await _tokenService.GenerateToken(usuario);
 
             return _response.AsSuccess(token);
         }

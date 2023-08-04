@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/ApiAuth/ApiAuth.csproj",
+                "${workspaceFolder}/Net6StudyCase.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/ApiAuth/ApiAuth.csproj",
+                "${workspaceFolder}/Net6StudyCase.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/ApiAuth/ApiAuth.csproj"
+                "${workspaceFolder}/Net6StudyCase.sln"
             ],
             "problemMatcher": "$msCompile"
         }
