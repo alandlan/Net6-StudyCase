@@ -49,7 +49,7 @@ public class UsuarioController : ControllerBase
 
     
     [HttpGet("")]
-    [Authorize("Teste")]
+    [Authorize("Admin")]
     public async Task<IActionResult> GetAllUsers()
     {
         var users = await _getUsers.RunAsync();
