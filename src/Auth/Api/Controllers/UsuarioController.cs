@@ -27,9 +27,9 @@ public class UsuarioController : ControllerBase
     [HttpPost("cadastro")]
     public async Task<IActionResult> CadastrarUsuario(CreateUserViewModel usuarioDto)
     {
-        await _createUser.Cadastrar(usuarioDto);
+        var response = await _createUser.Cadastrar(usuarioDto);
 
-        return Ok("Usuário cadastrado");
+        return Ok(response);
     }
 
     [AllowAnonymous]

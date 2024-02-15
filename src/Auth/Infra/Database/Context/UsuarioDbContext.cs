@@ -7,6 +7,7 @@ namespace Net6StudyCase.Auth.Infra.Database.Context;
 
 public class UsuarioDbContext : IdentityDbContext<Usuario>
 {
+
     public UsuarioDbContext(DbContextOptions<UsuarioDbContext> opts) : base(opts)
     {
     }
