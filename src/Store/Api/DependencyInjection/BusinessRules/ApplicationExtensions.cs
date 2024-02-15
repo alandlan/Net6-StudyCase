@@ -1,4 +1,5 @@
-﻿using Net6StudyCase.Store.Application.UseCases;
+﻿using Net6StudyCase.SharedKernel.Caching;
+using Net6StudyCase.Store.Application.UseCases;
 using Net6StudyCase.Store.Domain.UseCases;
 
 namespace Net6StudyCase.Auth.Api.DependencyInjection.BusinessRules
@@ -9,6 +10,7 @@ namespace Net6StudyCase.Auth.Api.DependencyInjection.BusinessRules
         {
             services.AddScoped<ICreateProduct, CreateProduct>();
             services.AddScoped<IGetProducts, GetProducts>();
+            services.AddScoped<ICachingService, CachingService>();
 
             return services;
         }

@@ -18,6 +18,12 @@ builder.Services.AddDbContext<ProdutoDbContext>(opts => opts.UseMySql(
     ServerVersion.AutoDetect(connectionString)
 ));
 
+builder.Services.AddStackExchangeRedisCache(opts =>
+{
+    opts.InstanceName = "RedisServer";
+    opts.Configuration = "localhost:6379";
+});
+
 builder.Services.AddAutoMapper(typeof(ProdutoProfile));
 
 builder.Services.AddControllers();
