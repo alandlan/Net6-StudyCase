@@ -7,8 +7,8 @@ namespace Net6StudyCase.Auth.Api.DependencyInjection.BusinessRules
     {
         internal static IServiceCollection AddApplicationConfiguration(this IServiceCollection services)
         {
-
             services.AddScoped<ICreateProduct, CreateProduct>();
+            services.AddScoped<IGetProducts, GetProducts>();
 
             return services;
         }

@@ -8,5 +8,7 @@ namespace SharedKernel.Responses
         GenericError = 0,
         [Description("Success")]
         Success = 1,
+        [Description("Error to create user")]
+        CreateUserError = 2,
     }
 }

@@ -62,19 +62,6 @@ builder.Services.AddSwaggerGen(c => {
 builder.Services.AddAuthentication(options => {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;})
-                // .AddJwtBearer(options => {
-                //     options.SaveToken = true;
-                //     options.TokenValidationParameters = new TokenValidationParameters {
-                //         ValidateIssuer = true,
-                //             ValidateAudience = true,
-                //             ValidateLifetime = true,
-                //             ValidateIssuerSigningKey = true,
-                //             ValidIssuer = builder.Configuration["Jwt:Issuer"],
-                //             ValidAudience = builder.Configuration["Jwt:Audience"],
-                //             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
-                            
-                //     };
-                // });
                 .AddJwtBearer(x =>
                 {
                     x.RequireHttpsMetadata = false;
@@ -90,7 +77,7 @@ builder.Services.AddAuthentication(options => {
 
 builder.Services.AddApplicationConfiguration();
 builder.Services.AddAuthorization(options => {
-    options.AddPolicy("Teste", policy => policy.RequireClaim("UserType"));
+    options.AddPolicy("Admin", policy => policy.RequireClaim("UserType", "Admin"));
 });
 
 var app = builder.Build();
