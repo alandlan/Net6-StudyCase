@@ -9,6 +9,7 @@ namespace Net6StudyCase.Auth.Api.DependencyInjection.BusinessRules
         {
 
             services.AddScoped<ICreateProduct, CreateProduct>();
+            services.AddScoped<IGetProducts, GetProducts>();
 
             return services;
         }
