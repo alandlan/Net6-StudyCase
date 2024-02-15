@@ -50,5 +50,35 @@ namespace ApiStore.Controllers
                 return BadRequest("Falha ao listar produtos!");
             }
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult> ListarProdutoPorId(int id)
+        {
+            try
+            {
+                var produto = await _getProducts.GetById(id);
+
+                return Ok(produto);
+            }
+            catch
+            {
+                return BadRequest("Falha ao listar produto!");
+            }
+        }
+
+        [HttpGet("pagination")]
+        public async Task<ActionResult> ListarProdutosPaginados(int page, int pageSize)
+        {
+            try
+            {
+                var produtos = await _getProducts.GetPagination(page, pageSize);
+
+                return Ok(produtos);
+            }
+            catch
+            {
+                return BadRequest("Falha ao listar produtos!");
+            }
+        }
     }
 }
